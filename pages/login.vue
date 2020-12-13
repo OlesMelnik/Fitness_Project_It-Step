@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<div class="info">
-			Логін для тесту: user<br>
+			Логін для тесту: test@test.com<br>
 			Пароль: 2281337
 		</div>
 		<div class="card">
@@ -66,6 +66,18 @@
 					})
 				}
 			}
+	// 		logout() {
+    // 			firebase.auth().signOut()
+	// 		  },
+	// 		  register() {
+    //   if (this.password === this.registrationPassword) {
+    //     firebase
+    //       .auth()
+    //       .createUserWithEmailAndPassword(this.email, this.password)
+    //   } else {
+    //     // display error message
+    //   }
+    // },
 		}
 	}
 </script>
