@@ -14,7 +14,7 @@
 					</b-icon>
 					Авторизація
 					<b-field label="Логін:" message="">
-						<b-input type="text" value="mykola.bakun123@gmai.com" v-model="email" placeholder="email" maxlength="30" />
+						<b-input type="text" value="mykola.bakun123@gmail.com" v-model="email" placeholder="email" maxlength="30" />
 					</b-field>
 					<b-field label="Пароль:" message="">
 						<b-input type="password" value="qwerty" v-model="password" placeholder="password" maxlength="30" />
@@ -23,6 +23,26 @@
 				</div>
 			</div>
 		</div>
+		<div class="card">
+			<div class="box">
+				<div class="content">
+					
+					<b-icon
+						icon="account"
+						size="is-small">
+					</b-icon>
+					Регіст
+					<b-field label="Email:" message="">
+						<b-input type="text" value="bakun123@gmail.com" v-model="new_email" placeholder="email" maxlength="30" />
+					</b-field>
+					<b-field label="Password:" message="">
+						<b-input type="password" value="qwerty" v-model="new_password" placeholder="password" maxlength="30" />
+					</b-field>
+            		<b-button type="is-success" @click="register()">Погнали!</b-button>
+				</div>
+			</div>
+		</div>
+		<b-button type="is-success" @click="logout()">Вийти!</b-button>
 	</div>
 </template>
 
@@ -35,8 +55,11 @@
 		name: 'Main',
 		data () {
 			return {
-				email: 'mykola.bakun123@gmai.com',
+				email: 'mykola.bakun123@gmail.com',
 				password: 'qwerty',
+				
+				new_email: 'bakun123@gmail.com',
+				new_password: 'qwerty',
 			}
 		},
 		components: {
@@ -65,19 +88,37 @@
 						message: 'Поля повинні бути не порожні'
 					})
 				}
-			}
-	// 		logout() {
-    // 			firebase.auth().signOut()
-	// 		  },
-	// 		  register() {
-    //   if (this.password === this.registrationPassword) {
-    //     firebase
-    //       .auth()
-    //       .createUserWithEmailAndPassword(this.email, this.password)
-    //   } else {
-    //     // display error message
-    //   }
-    // },
+			},
+			logout() {
+				firebase.auth().signOut()
+				this.$notify.success({
+					title: 'Ураа!',
+					message: 'Ви вийшли'
+				})
+			},
+			register() {
+				if (this.new_email !== '' && this.new_password !== '') {
+        			firebase
+          			.auth().createUserWithEmailAndPassword(this.new_email, this.new_password)
+					.then(data => {
+						this.$notify.success({
+							title: 'Велкам!',
+							message: 'Регістрація успішна'
+						})
+						this.$router.push('/cabinet')})
+        			.catch(err => {
+						this.$notify.error({
+							title: 'Ууупс',
+							message: 'Щось пішло не так'
+						})
+					});
+      			} else {
+        			this.$notify.error({
+						title: 'Ууупс',
+						message: 'Поля повинні бути не порожні'
+					})
+      			}
+    },
 		}
 	}
 </script>
