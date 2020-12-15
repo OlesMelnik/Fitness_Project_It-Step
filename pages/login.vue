@@ -54,6 +54,9 @@
 		layout: 'landing',
 		name: 'Main',
 		data () {
+			// var user = firebase.auth().currentUser;
+			// // if(user)
+			// 			console.log(user);
 			return {
 				email: 'mykola.bakun123@gmail.com',
 				password: 'qwerty',
@@ -74,7 +77,9 @@
 							title: 'Велкам!',
 							message: 'Авторизація успішна'
 						})
-						this.$router.push('/cabinet')})
+						
+						this.$router.push('/getuser')
+						})
         			.catch(err => {
 						this.$notify.error({
 							title: 'Ууупс',
