@@ -76,23 +76,20 @@
 						message: 'Поля повинні бути не порожні'
 					})
       			}
-    },
+    		},changeProfileSettings(){
+				firebase.firestore().collection('users').doc('12FwiwLCFgjvQPMyU3oN8C2').add({
+        		    firstname: 'firstname',
+        		    lastname: 'lastname',
+        		    phone: 'phone',
+        		    imgSrc: 'imgSrc'
+				})
+				// console.log("")
+        		this.$notify.success({
+        		  	title: 'Success!',
+        		    message: 'Profile settings changed'
+    			})
+        	}
 		},
-	changeProfileSettings(){
-		const fireDb = firebase.firestore()
-		ref = fireDb.collection('users').doc('12FwiwLCFgjvQPMyU3oN8C2').add({
-            firstname: 'firstname',
-            lastname: 'lastname',
-            phone: 'phone',
-            imgSrc: 'imgSrc',
-		})
-		console.log(ref)
-        this.$notify.success({
-          	title: 'Success!',
-            message: 'Profile settings changed'
-    	})
-        }
-            
 	}
 </script>
 
