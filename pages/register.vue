@@ -8,15 +8,15 @@
 						icon="account"
 						size="is-small">
 					</b-icon>
-					Авторизація
+					Реєстрація
 					<b-field label="Логін:" message="">
-						<b-input type="text" value="mykola.bakun123@gmai.com" v-model="email" placeholder="email" maxlength="30" />
+						<b-input type="text" v-model="email" placeholder="Введіть ваш e-mail" maxlength="30" />
 					</b-field>
 					<b-field label="Пароль:" message="">
-						<b-input type="password" value="qwerty" v-model="password" placeholder="password" maxlength="30" />
+						<b-input type="password" v-model="password" placeholder="Введіть ваш пароль" maxlength="30" />
 					</b-field>
-            		<b-button type="is-success" @click="login()">Вхід</b-button>
-					<nuxt-link to="/register" style="margin-left: 20px; line-height: 35px">Реєстрація</nuxt-link>
+            		<b-button type="is-success" @click="register()">Зареєструватись!</b-button>
+					<nuxt-link to="/login" style="margin-left: 20px; line-height: 35px">Вже є аккаунт, авторизуватись</nuxt-link>
 				</div>
 			</div>
 		</div>
@@ -44,10 +44,10 @@
 			},
         },
 		methods: {
-			login(){
-
+			register(){
 				if(this.email !== '' && this.password !== ''){
-					firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+					firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+					//Поправте пліз назву методу
         			.then(data => {
 						this.$notify.success({
 							title: 'Велкам!',
@@ -68,31 +68,16 @@
         			.catch(err => {
 						this.$notify.error({
 							title: 'Ууупс',
-							message: 'Логін/пароль неправильний'
+							message: 'Введений e-mail вже використовується'
 						})
 					});
-
-					
-
 				}else{
 					this.$notify.error({
 						title: 'Ууупс',
-						message: 'Поля повинні бути не порожні'
+						message: 'Поля не повинні бути порожні'
 					})
 				}
 			}
-	// 		logout() {
-    // 			firebase.auth().signOut()
-	// 		  },
-	// 		  register() {
-    //   if (this.password === this.registrationPassword) {
-    //     firebase
-    //       .auth()
-    //       .createUserWithEmailAndPassword(this.email, this.password)
-    //   } else {
-    //     // display error message
-    //   }
-    // },
 		}
 	}
 </script>
