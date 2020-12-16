@@ -1,4 +1,3 @@
-import authGuard from "../middleware/authGuard"
 
 export const state = () => ({
     auth: {

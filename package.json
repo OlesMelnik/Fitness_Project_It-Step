@@ -9,10 +9,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@firebase/app": "^0.6.13",
-    "@firebase/auth": "^0.16.0",
     "@nuxtjs/axios": "^5.12.2",
+    "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
+    "firebase": "^8.2.0",
     "nuxt": "^2.14.11",
     "nuxt-buefy": "^0.4.3",
     "nuxt-izitoast": "^1.0.0",
