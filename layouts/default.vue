@@ -34,6 +34,16 @@
 					</nuxt-link>
 				</li>
 				<li>
+					<nuxt-link to="/settings">
+						<b-icon icon="apps" /> Налаштування
+					</nuxt-link>
+				</li>
+				<li>
+					<nuxt-link to="/statistic">
+						<b-icon icon="apps" /> Статистика
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/">
 						<b-icon icon="exit-to-app" /> Вихід
 					</nuxt-link>
