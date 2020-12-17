@@ -49,27 +49,22 @@
 				if(this.email !== '' && this.password !== ''){
 					firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         			.then(data => {
-						this.$notify.success({
-							title: 'Велкам!',
-							message: 'Авторизація успішна'
-						})
-						const user = firebase.auth().currentUser
-
-                        this.$store.commit('auth', {
-                            uid: user.uid,
-						});
-						
-						//this.$store.state.user = user
-						//this.$store.commit('user/logUser',user)
-
-
-						this.$router.push('/cabinet')
-					})
+						    this.$notify.success({
+						    	title: 'Велкам!',
+						    	message: 'Авторизація успішна'
+						    })
+						    const user = firebase.auth().currentUser
+						    this.$store.state.user.user = user
+						    this.$store.commit('auth', {
+                  uid: user.uid,
+						    });
+						    this.$router.push('/cabinet')
+					    })
         			.catch(err => {
-						this.$notify.error({
-							title: 'Ууупс',
-							message: 'Логін/пароль неправильний'
-						})
+						    this.$notify.error({
+						    	title: 'Ууупс',
+						    	message: 'Логін/пароль неправильний'
+						    })
 					});
 
 					
