@@ -132,8 +132,6 @@
                 document.getElementById('imgSrc').value = temp.imgSrc;
                 this.$refs.myImage.src = temp.imgSrc;
             }, 700);
-
-            console.log()
             //this.user = Object.assign({}, temp);
 
         },
