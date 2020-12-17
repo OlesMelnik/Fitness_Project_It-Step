@@ -26,6 +26,7 @@
 <script>
 	import firebase from 'firebase/app'
 	import '@firebase/auth'
+	import '@firebase/firestore'
 
 	export default {
 		layout: 'landing',
@@ -54,10 +55,37 @@
 							message: 'Авторизація успішна'
 						})
 						const user = firebase.auth().currentUser
+						const fireDb = firebase.firestore()
 
                         this.$store.commit('auth', {
                             uid: user.uid,
 						});
+						fireDb.collection('users').doc(user.uid).set({
+							age:0,
+							attendance:0,
+							firstname:'',
+							imgSrc:'',
+							lastname:'',
+							phone:'',
+							season_ticket:'',
+							notificationEmailNews: true,
+							notificationEmailTraining: true,
+							notificationTelegramNews: true,
+							notificationTelegramTraining: true
+						})
+						fireDb.collection('statistic').doc(user.uid).set({
+							absence: 0,
+							attendance:0,
+							cal:0,
+							calories:[],
+							date:[],
+							heartBit:[],
+							level:'Новачок',
+							presence:0,
+							progress:0,
+							workout:[],
+							workout_info:[]
+						})
 						
 						//this.$store.state.user = user
 						//this.$store.commit('user/logUser',user)
