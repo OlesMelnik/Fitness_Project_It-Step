@@ -54,41 +54,42 @@
 			},
 			register() {
 				if (this.new_email !== '' && this.new_password !== '') {
-					changeProfileSettings()
-					// firebase
-          			// .auth().createUserWithEmailAndPassword(this.new_email, this.new_password)
-					// .then(data => {
-					// 	this.$notify.success({
-					// 		title: 'Велкам!',
-					// 		message: 'Регістрація успішна'
-					// 	})
-					// 	changeProfileSettings()
-					// 	this.$router.push('/cabinet')})
-        			// .catch(err => {
-					// 	this.$notify.error({
-					// 		title: 'Ууупс',
-					// 		message: 'Щось пішло не так'
-					// 	})
-					// });
+					// changeProfileSettings()
+					firebase
+          			.auth().createUserWithEmailAndPassword(this.new_email, this.new_password)
+					.then(data => {
+						this.$notify.success({
+							title: 'Велкам!',
+							message: 'Регістрація успішна'
+						})
+						changeProfileSettings()
+						this.$router.push('/cabinet')})
+        			.catch(err => {
+						this.$notify.error({
+							title: 'Ууупс',
+							message: 'Щось пішло не так'
+						})
+					});
       			} else {
         			this.$notify.error({
 						title: 'Ууупс',
 						message: 'Поля повинні бути не порожні'
 					})
       			}
-    		},changeProfileSettings(){
-				firebase.firestore().collection('users').doc('12FwiwLCFgjvQPMyU3oN8C2').add({
-        		    firstname: 'firstname',
-        		    lastname: 'lastname',
-        		    phone: 'phone',
-        		    imgSrc: 'imgSrc'
-				})
-				// console.log("")
-        		this.$notify.success({
-        		  	title: 'Success!',
-        		    message: 'Profile settings changed'
-    			})
-        	}
+			}
+			// ,changeProfileSettings(){
+			// 	firebase.firestore().collection('users').doc('12FwiwLCFgjvQPMyU3oN8C2').add({
+        	// 	    firstname: 'firstname',
+        	// 	    lastname: 'lastname',
+        	// 	    phone: 'phone',
+        	// 	    imgSrc: 'imgSrc'
+			// 	})
+			// 	// console.log("")
+        	// 	this.$notify.success({
+        	// 	  	title: 'Success!',
+        	// 	    message: 'Profile settings changed'
+    		// 	})
+        	// }
 		},
 	}
 </script>
