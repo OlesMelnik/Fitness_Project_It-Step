@@ -7,12 +7,12 @@
                 <h2 class="subtitle">Email Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notEN" @input="notificationEN()">
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notET" @input="notificationET()">
                         Training Notifications
                     </b-switch>
                 </div>
@@ -21,26 +21,15 @@
                 <h2 class="subtitle">Telegram Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notTN" @input="notificationTN()">
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notTT" @input="notificationTT()">
                         Training Notifications
                     </b-switch>
                 </div>
-
-                <br>
-                <h1 class="title">Theme Settings</h1>
-                <hr class="has-background-link">
-
-                <div class="field">
-                    <b-switch>
-                        Dark theme
-                    </b-switch>
-                </div>
-
 
                 <br>
                 <h1 class="title">Profile Settings</h1>
@@ -51,9 +40,6 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                            <!-- <img src="https://bulma.io/images/placeholders/1280x960.png" v-if="this.user !== null" />
-                            <img src="1.png" v-else /> -->
-                              <!-- {(true) ? <img src="https://bulma.io/images/placeholders/1280x960.png" ref="myImage"> :<img src="" ref="myImage"> } -->
                                 <img src="https://bulma.io/images/placeholders/1280x960.png" ref="myImage">
                             </figure>
                         </div>
@@ -109,15 +95,23 @@
     var ref;
 
     export default {
+        data () {
+			return {
+                user: null,
+                notTT:false,
+                notTN:false,
+                notET:false,
+                notEN:false
+			}
+        },
         mounted(){
-            //this.$store.state.user.user.uid
+            //ЦЕ ПІЗДЕЦ
+            var temp;
+            
             ref = fireDb.collection('users').doc(this.$store.state.user.user.uid)
             ref.get().then(function(doc) {
             if (doc.exists) {
-                document.getElementById('firstname').value = doc.data().firstname;
-                document.getElementById('lastname').value = doc.data().lastname;
-                document.getElementById('phone').value = doc.data().phone;
-                document.getElementById('imgSrc').value = doc.data().imgSrc;
+                temp = Object.assign({}, doc.data());
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -125,8 +119,50 @@
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
+            setTimeout(() => { 
+                this.notEN = temp.notificationEmailNews;
+                this.notTN = temp.notificationTelegramNews;
+                this.notET = temp.notificationEmailTraining;
+                this.notTT = temp.notificationTelegramTraining;
+            }, 700);
+             setTimeout(() => { 
+                document.getElementById('firstname').value = temp.firstname; 
+                document.getElementById('lastname').value = temp.lastname;
+                document.getElementById('phone').value = temp.phone;
+                document.getElementById('imgSrc').value = temp.imgSrc;
+                this.$refs.myImage.src = temp.imgSrc;
+            }, 700);
+
+            console.log()
+            //this.user = Object.assign({}, temp);
+
         },
         methods:{
+            notificationEN(){
+                var notTemp = this.notEN;
+                ref.update({
+                    notificationEmailNews: notTemp
+                })
+            },
+            notificationTN(){
+                var notTemp = this.notTN;
+                console.log(notTemp)
+                ref.update({
+                    notificationTelegramNews: notTemp
+                })
+            },
+            notificationET(){
+                var notTemp = this.notET;
+                ref.update({
+                    notificationEmailTraining: notTemp
+                })
+            },
+            notificationTT(){
+                var notTemp = this.notTT;
+                ref.update({
+                    notificationTelegramTraining: notTemp
+                })
+            },
             changeProfileSettings(){
                 this.$refs.myImage.src = document.getElementById('imgSrc').value
                 ref.update({
