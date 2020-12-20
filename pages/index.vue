@@ -6,6 +6,7 @@
 				<br>
 				<br>
 				Ну короче, тут якийсь лендінг, або подібна херня 👮‍♂️
+				<hr>
 				<br>
 				<br>
 				<nuxt-link to="/login">
@@ -22,7 +23,7 @@
 				<div class="news">
 					<div class="n" v-for="i in tempArr" v-bind:key="i">
 						<div class="img">
-							<img :src= "i.data().imgSrc">
+							<img class="imgCard" :src= "i.data().imgSrc">
 						</div>
 						<div class="in">
 							<div class="name">{{i.data().title}}</div>
@@ -72,6 +73,7 @@
 </script>
 
 <style scoped>
+
 	.news{
 		width: 100%;
 		display: inline-block;
@@ -88,7 +90,9 @@
 		width: 300px;
 		float: left;
 	}
+	
 	.news .n .img img{width: 100%; display: block}
+
 	.news .n .in{
 		float: left;
 		width: calc(100% - 340px);

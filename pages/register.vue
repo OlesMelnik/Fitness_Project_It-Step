@@ -9,11 +9,14 @@
 						size="is-small">
 					</b-icon>
 					Реєстрація
-					<b-field label="Логін:" message="">
+					<b-field label="Пошта" message="">
 						<b-input type="text" v-model="email" placeholder="Введіть ваш e-mail" maxlength="30" />
 					</b-field>
-					<b-field label="Пароль:" message="">
+					<b-field label="Пароль" message="">
 						<b-input type="password" v-model="password" placeholder="Введіть ваш пароль" maxlength="30" />
+					</b-field>
+					<b-field label="Підтвердіть пароль" message="">
+						<b-input type="password" v-model="rpassword" placeholder="Підтвердіть ваш пароль" maxlength="30" />
 					</b-field>
             		<b-button type="is-link" @click="register()">Зареєструватись!</b-button>
 					<nuxt-link to="/login">
@@ -35,8 +38,9 @@
 		name: 'Main',
 		data () {
 			return {
-				email: 'svyat@gmail.com',
-				password: 'qwertyuiop',
+				email: '',
+				password: '',
+				rpassword: '',
 			}
 		},
 		components: {
@@ -48,12 +52,12 @@
         },
 		methods: {
 			register(){
-				if(this.email !== '' && this.password !== ''){
+				if(this.email !== '' && this.password !== '' && this.password == this.rpassword){
 					firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
 					//Поправте пліз назву методу
         			.then(data => {
 						this.$notify.success({
-							title: 'Велкам!',
+							title: 'Гуд!',
 							message: 'Аккаунт успішно створений'
 						})
 						const user = firebase.auth().currentUser
@@ -104,7 +108,7 @@
 				}else{
 					this.$notify.error({
 						title: 'Ууупс',
-						message: 'Поля не повинні бути порожні'
+						message: 'Перевірте введену інформацію'
 					})
 				}
 			}
