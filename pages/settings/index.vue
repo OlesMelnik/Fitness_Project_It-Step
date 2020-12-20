@@ -47,7 +47,7 @@
                             <h2 class="subtitle">Profile photo</h2>
                             <hr>
                             <b-field label="PhotoURL" message="">
-                                <b-input id="imgSrc" type="text" />
+                                <b-input v-model="imgSrc" type="text" />
                             </b-field>
                         </div>
                     </div>
@@ -55,13 +55,13 @@
 
                 <div class="column is-one-quarter">
                     <b-field label="Phone" message="">
-                        <b-input id="phone" type="phone" maxlength="30" />
+                        <b-input v-model="phone" type="phone" maxlength="30" />
                     </b-field>
                     <b-field label="First Name" message="">
-                        <b-input id="firstname" type="text" maxlength="30" />
+                        <b-input v-model="firstname" type="text" maxlength="30" />
                     </b-field>
                     <b-field label="Last Name" message="">
-                        <b-input id="lastname" type="text" maxlength="30" />
+                        <b-input v-model="lastname" type="text" maxlength="30" />
                     </b-field>
                     <b-button type="is-link is-light" @click="changeProfileSettings()">Save profile settings</b-button>
                 </div>
@@ -93,6 +93,7 @@
 
     const fireDb = firebase.firestore()
     var ref;
+    var temp;
 
     export default {
         data () {
@@ -101,13 +102,14 @@
                 notTT:false,
                 notTN:false,
                 notET:false,
-                notEN:false
+                notEN:false,
+                firstname: null,
+                lastname: null,
+                phone: null,
+                imgSrc: null
 			}
         },
-        mounted(){
-            //ЦЕ ПІЗДЕЦ
-            var temp;
-            
+        beforeCreate(){
             ref = fireDb.collection('users').doc(this.$store.state.user.user.uid)
             ref.get().then(function(doc) {
             if (doc.exists) {
@@ -119,21 +121,18 @@
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
-            setTimeout(() => { 
+        },
+        mounted(){
+                
+                this.firstname = temp.firstname; 
+                this.lastname = temp.lastname;
+                this.phone = temp.phone;
+                this.imgSrc = temp.imgSrc;
+                this.$refs.myImage.src = temp.imgSrc;
                 this.notEN = temp.notificationEmailNews;
                 this.notTN = temp.notificationTelegramNews;
                 this.notET = temp.notificationEmailTraining;
                 this.notTT = temp.notificationTelegramTraining;
-            }, 700);
-             setTimeout(() => { 
-                document.getElementById('firstname').value = temp.firstname; 
-                document.getElementById('lastname').value = temp.lastname;
-                document.getElementById('phone').value = temp.phone;
-                document.getElementById('imgSrc').value = temp.imgSrc;
-                this.$refs.myImage.src = temp.imgSrc;
-            }, 700);
-            //this.user = Object.assign({}, temp);
-
         },
         methods:{
             notificationEN(){

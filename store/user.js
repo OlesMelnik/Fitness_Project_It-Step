@@ -1,13 +1,7 @@
 
 
 export const state = () => ({
-    user: null
+    user: false
 })
 
 export const strict = false
-
-export const mutations = {
-    logUser(state,userFb){
-        state.user = userFb
-    }
-}
