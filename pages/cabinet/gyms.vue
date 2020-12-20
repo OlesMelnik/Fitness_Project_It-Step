@@ -1,8 +1,8 @@
 <template>
 	<section class="section">
-			<div class="block">
-				Gym selector
-			</div>
+			<br>
+            <h1 class="title">Gym selector</h1>
+            <hr class="has-background-link">
 			
 			<div class="block">
 				<div class="columns is-mobile gyms">
