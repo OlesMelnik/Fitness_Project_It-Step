@@ -15,8 +15,10 @@
 					<b-field label="Пароль:" message="">
 						<b-input type="password" v-model="password" placeholder="Введіть ваш пароль" maxlength="30" />
 					</b-field>
-            		<b-button type="is-success" @click="register()">Зареєструватись!</b-button>
-					<nuxt-link to="/login" style="margin-left: 20px; line-height: 35px">Вже є аккаунт, авторизуватись</nuxt-link>
+            		<b-button type="is-link" @click="register()">Зареєструватись!</b-button>
+					<nuxt-link to="/login">
+						<b-button type="is-link is-light">Вже є аккаунт, авторизуватись</b-button>
+					</nuxt-link>
 				</div>
 			</div>
 		</div>
@@ -52,7 +54,7 @@
         			.then(data => {
 						this.$notify.success({
 							title: 'Велкам!',
-							message: 'Авторизація успішна'
+							message: 'Аккаунт успішно створений'
 						})
 						const user = firebase.auth().currentUser
 						const fireDb = firebase.firestore()
@@ -91,7 +93,7 @@
 						//this.$store.commit('user/logUser',user)
 
 
-						this.$router.push('/cabinet')
+						this.$router.push('/login')
 					})
         			.catch(err => {
 						this.$notify.error({

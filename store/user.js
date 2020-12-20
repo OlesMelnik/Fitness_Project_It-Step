@@ -1,7 +1,7 @@
 
 
 export const state = () => ({
-    user: false
+    user: null
 })
 
 export const strict = false

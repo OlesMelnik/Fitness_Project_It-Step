@@ -15,8 +15,10 @@
 					<b-field label="Пароль:" message="">
 						<b-input type="password" value="qwerty" v-model="password" placeholder="password" maxlength="30" />
 					</b-field>
-            		<b-button type="is-success" @click="login()">Вхід</b-button>
-					<nuxt-link to="/register" style="margin-left: 20px; line-height: 35px">Реєстрація</nuxt-link>
+            		<b-button type="is-link" @click="login()">Вхід</b-button>
+					<nuxt-link to="/register">
+						<b-button type="is-link is-light">Реєстрація</b-button>
+					</nuxt-link>
 				</div>
 			</div>
 		</div>
