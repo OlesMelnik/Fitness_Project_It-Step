@@ -96,6 +96,7 @@
     var temp;
 
     export default {
+        name: 'Settings',
         data () {
 			return {
                 user: null,
@@ -133,7 +134,7 @@
                     this.notTN = temp.notificationTelegramNews;
                     this.notET = temp.notificationEmailTraining;
                     this.notTT = temp.notificationTelegramTraining;
-                },300);
+                },700);
         },
         methods:{
             notification(){
@@ -159,7 +160,7 @@
             }
             ,
             changePassword(){
-                if(document.getElementById('nPas').value==document.getElementById('rPas').value){
+                if(document.getElementById('nPas').value==document.getElementById('rPas').value & document.getElementById('nPas').value!='' & document.getElementById('rPas').value!=''){
                     this.$store.state.user.user.updatePassword(document.getElementById('rPas').value)
 
                     this.$notify.success({

@@ -29,11 +29,6 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/cabinet">
-						<b-icon icon="android-debug-bridge" /> Майнкрафт - ета мая жизнь
-					</nuxt-link>
-				</li>
-				<li>
 					<nuxt-link to="/settings" exact-active-class="is-active">
 						<b-icon icon="apps" /> Налаштування
 					</nuxt-link>

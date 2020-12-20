@@ -7,13 +7,13 @@
 </template>
 
 <script>
-
+	
 	export default {
 		layout: 'landing',
 		name: 'Main',
 
 		components: {
-		}
+		},
 	}
 </script>
 
