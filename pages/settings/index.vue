@@ -7,12 +7,12 @@
                 <h2 class="subtitle">Email Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch v-model="notEN" @input="notificationEN()">
+                    <b-switch v-model="notEN" @input="notification()">
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch v-model="notET" @input="notificationET()">
+                    <b-switch v-model="notET" @input="notification()">
                         Training Notifications
                     </b-switch>
                 </div>
@@ -21,12 +21,12 @@
                 <h2 class="subtitle">Telegram Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch v-model="notTN" @input="notificationTN()">
+                    <b-switch v-model="notTN" @input="notification()">
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch v-model="notTT" @input="notificationTT()">
+                    <b-switch v-model="notTT" @input="notification()">
                         Training Notifications
                     </b-switch>
                 </div>
@@ -123,41 +123,25 @@
             });
         },
         mounted(){
-                
-                this.firstname = temp.firstname; 
-                this.lastname = temp.lastname;
-                this.phone = temp.phone;
-                this.imgSrc = temp.imgSrc;
-                this.$refs.myImage.src = temp.imgSrc;
-                this.notEN = temp.notificationEmailNews;
-                this.notTN = temp.notificationTelegramNews;
-                this.notET = temp.notificationEmailTraining;
-                this.notTT = temp.notificationTelegramTraining;
+                setTimeout(() => {
+                    this.firstname = temp.firstname; 
+                    this.lastname = temp.lastname;
+                    this.phone = temp.phone;
+                    this.imgSrc = temp.imgSrc;
+                    this.$refs.myImage.src = temp.imgSrc;
+                    this.notEN = temp.notificationEmailNews;
+                    this.notTN = temp.notificationTelegramNews;
+                    this.notET = temp.notificationEmailTraining;
+                    this.notTT = temp.notificationTelegramTraining;
+                },300);
         },
         methods:{
-            notificationEN(){
-                var notTemp = this.notEN;
+            notification(){
                 ref.update({
-                    notificationEmailNews: notTemp
-                })
-            },
-            notificationTN(){
-                var notTemp = this.notTN;
-                console.log(notTemp)
-                ref.update({
-                    notificationTelegramNews: notTemp
-                })
-            },
-            notificationET(){
-                var notTemp = this.notET;
-                ref.update({
-                    notificationEmailTraining: notTemp
-                })
-            },
-            notificationTT(){
-                var notTemp = this.notTT;
-                ref.update({
-                    notificationTelegramTraining: notTemp
+                    notificationEmailNews: this.notEN,
+                    notificationTelegramNews: this.notTN,
+                    notificationEmailTraining: this.notET,
+                    notificationTelegramTraining: this.notTT
                 })
             },
             changeProfileSettings(){
