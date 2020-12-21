@@ -10,10 +10,12 @@
 					</b-icon>
 					Авторизація
 					<b-field label="Логін:" message="">
-						<b-input type="text" value="mykola.bakun123@gmai.com" v-model="email" placeholder="email" maxlength="30" />
+
+						<b-input type="text" value="svyat@gmail.com" v-model="email" placeholder="email" maxlength="30" />
 					</b-field>
 					<b-field label="Пароль:" message="">
-						<b-input type="password" value="qwerty" v-model="password" placeholder="password" maxlength="30" />
+						<b-input type="password" value="qwertyuiop" v-model="password" placeholder="password" maxlength="30" />
+
 					</b-field>
             		<b-button type="is-link" @click="login()">Вхід</b-button>
 					<nuxt-link to="/register">
@@ -49,6 +51,7 @@
 			login(){
 
 				if(this.email !== '' && this.password !== ''){
+
 					firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         			.then(data => {
 						    this.$notify.success({
