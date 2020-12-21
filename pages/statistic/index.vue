@@ -18,17 +18,16 @@ import "@firebase/auth";
 
 const fireDb = firebase.firestore();
 var ref;
-var data = [];
+var data;
 export default {
   extends: Bar,
   mounted() {
-    ref = fireDb.collection("statistic").doc(this.$store.state.user.uid);
+    ref = fireDb.collection("statistic").doc(this.$store.state.user.user.uid);
     ref
       .get()
       .then(function (doc) {
         if (doc.exists) {
-          data = doc.data();
-          
+          data = Object.assign({}, doc.data());
         } else {
           console.log("No such document!");
         }
@@ -36,36 +35,41 @@ export default {
       .catch(function (error) {
         console.log("Error getting document:", error);
       });
-    this.attendance = data.attendance;
-    this.cal = data.cal;
-    this.level = data.level;
-    this.progress = data.progress;
-    this.renderChart(
-      {
-        labels: data.heartBit,
-        datasets: [
+
+    setTimeout(() => {
+        this.attendance = data.attendance;
+        this.cal = data.cal;
+        this.level = data.level;
+        this.progress = data.progress;
+        this.renderChart(
           {
-            label: "Mean Pulse",
-            data: data.heartBit,
-            backgroundColor: "rgba(54, 162, 235, 0.2)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
-          },
-        ],
-      },
-      {
-        scales: {
-          yAxes: [
-            {
-              display: true,
-              ticks: {
-                suggestedMin: 50, // minimum will be 0, unless there is a lower value.
+            labels: data.heartBit,
+            datasets: [
+              {
+                label: "Mean Pulse",
+                data: data.heartBit,
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
               },
+            ],
+          },
+          {
+            scales: {
+              yAxes: [
+                {
+                  display: true,
+                  ticks: {
+                    suggestedMin: 50, // minimum will be 0, unless there is a lower value.
+                  },
+                },
+              ],
             },
-          ],
-        },
-      }
-    );
+          }
+        );
+    },700);
+
+
   },
 
   name: "Stat",
