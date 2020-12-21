@@ -25,7 +25,7 @@
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/gyms" exact-active-class="is-active">
-						<b-icon icon="account" /> Вибрати зал
+						<b-icon icon="clock" /> Вибрати зал
 					</nuxt-link>
 				</li>
 				<li>
@@ -34,13 +34,8 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/settings">
-						<b-icon icon="apps" /> Налаштування
-					</nuxt-link>
-				</li>
-				<li>
-					<nuxt-link to="/statistic">
-						<b-icon icon="apps" /> Статистика
+					<nuxt-link to="/statistic" exact-active-class="is-active">
+						<b-icon icon="account"/> Статистика
 					</nuxt-link>
 				</li>
 				<li>
