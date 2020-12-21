@@ -6,6 +6,11 @@
     <h2>Середнє кількість спалених калорій за тренировку: <strong>{{cal}}</strong></h2>
     <h2>Ваш рівень: <strong>{{level}}</strong> </h2>
     <h2>Виконаний курс: <strong>{{progress}}%</strong></h2>
+
+    <br>
+    <h2 class="subtitle">Mean Pulse</h2>
+    <hr>
+
     <canvas ref="canvas"></canvas>
   </section>
 </template>
