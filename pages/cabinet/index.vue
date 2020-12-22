@@ -3,16 +3,16 @@
 			<!-- <card title="Free" icon="github" >
 				Open source on <a href="https://github.com/buefy/buefy">GitHub</a>
 			</card> -->
-			Новини
+			<h1 class="title">News</h1>
+            <hr class="has-background-link">
 			<div class="news">
-				<div class="n" v-for="i in 10" v-bind:key="i">
+				<div class="n" v-for="i in tempArr" v-bind:key="i">
 					<div class="img">
-						<img src="https://i.pinimg.com/originals/44/99/95/449995ef1ce37086e6de72835c42efcb.jpg">
+						<img :src= "i.data().imgSrc">
 					</div>
 					<div class="in">
-						<div class="name">Новина №{{i}}</div>
-						<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos aspernatur pariatur illum eligendi libero ipsam laborum expedita porro provident error. Eveniet, harum. Dolores, eius sed earum dolore quisquam explicabo hic?</div>
-						Hello
+						<div class="name">{{i.data().title}}</div>
+						<div class="text">{{i.data().description}}</div>
 					</div>
 				</div>
 			</div>
@@ -22,11 +22,36 @@
 <script>
 import Card from '~/components/Card'
 
+import firebase from 'firebase/app'
+import '@firebase/firestore'
+const fireDb = firebase.firestore()
+	
+var ref;
+var temp
 export default {
 	name: 'HomePage',
-
 	components: {
 		Card
+	},
+	data(){
+		return{
+			tempArr: []
+		}
+	},
+	created(){
+			ref = fireDb.collection('events').where("event", "==", true)
+            ref.get()
+			.then(function(querySnapshot) {
+				temp = querySnapshot.docs
+			})
+			.catch(function(error) {
+				console.log("Error getting documents: ", error);
+			});
+	},
+	mounted(){
+		setTimeout(() => {
+			this.tempArr=temp
+		},700)
 	}
 }
 </script>
@@ -38,7 +63,7 @@ export default {
 	}
 	.news .n{
 		width: 100%;
-		background: rgb(215, 240, 243);
+		background: #F6F1FF;
 		display: inline-block;
 		overflow: hidden;
 		border-radius: 20px;
