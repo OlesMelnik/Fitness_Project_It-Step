@@ -40,7 +40,7 @@
 				</li>
 				<li>
 					<nuxt-link to="/statistic">
-						<b-icon icon="apps" /> Статистика
+						<b-icon icon="analytics-outline" /> Статистика
 					</nuxt-link>
 				</li>
 				<li>
