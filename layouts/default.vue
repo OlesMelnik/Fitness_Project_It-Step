@@ -29,6 +29,11 @@
 					</nuxt-link>
 				</li>
 				<li>
+					<nuxt-link to="/cabinet/calendar" exact-active-class="is-active">
+						<b-icon icon="calendar" /> Календар
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/settings" exact-active-class="is-active">
 						<b-icon icon="apps" /> Налаштування
 					</nuxt-link>
