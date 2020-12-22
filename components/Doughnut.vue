@@ -1,8 +1,8 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Doughnut } from 'vue-chartjs'
 
 export default {
-  extends: Bar,
+  extends: Doughnut,
   props: {
     chartdata: {
       type: Object,
@@ -15,7 +15,7 @@ export default {
   },
 
   mounted () {
-    this.renderChart(this.chartdata, this.options)
+    this.renderChart(this.chartdata,this.options)
   }
 }
 </script>
