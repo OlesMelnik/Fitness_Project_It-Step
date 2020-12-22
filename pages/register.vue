@@ -70,7 +70,7 @@
 							age:0,
 							attendance:0,
 							firstname:'',
-							imgSrc:'',
+							imgSrc:'https://bulma.io/images/placeholders/1280x960.png',
 							lastname:'',
 							phone:'',
 							season_ticket:'',

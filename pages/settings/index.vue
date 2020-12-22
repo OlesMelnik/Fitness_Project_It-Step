@@ -159,12 +159,12 @@
             },
 
             changeProfileSettings(){
-                this.$refs.myImage.src = document.getElementById('imgSrc').value
+                this.$refs.myImage.src = this.imgSrc
                 ref.update({
-                    firstname: document.getElementById('firstname').value,
-                    lastname: document.getElementById('lastname').value,
-                    phone: document.getElementById('phone').value,
-                    imgSrc: document.getElementById('imgSrc').value,
+                    firstname: this.firstname,
+                    lastname: this.lastname,
+                    phone: this.phone,
+                    imgSrc: this.imgSrc,
                 })
                 this.$notify.success({
 							title: 'Success!',
