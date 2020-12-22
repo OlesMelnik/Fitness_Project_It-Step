@@ -15,6 +15,9 @@
     <h2>
       Виконаний курс: <strong>{{ progress }}%</strong>
     </h2>
+    <br>
+
+
     <!-- <canvas ref="canvas"></canvas> -->
     <div class="columns">
       <div class="column">
@@ -80,6 +83,8 @@ export default {
       .catch(function (error) {
         console.log("Error getting document:", error);
       });
+    
+    setTimeout(() =>{
     this.attendance = data.attendance;
     this.cal = data.cal;
     this.level = data.level;
@@ -148,6 +153,9 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
     };
+    }, 700)
+
+
   },
   // this.renderChart(
   //   {
