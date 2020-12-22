@@ -34,6 +34,11 @@
 					</nuxt-link>
 				</li>
 				<li>
+					<nuxt-link to="/cabinet/buy-page" exact-active-class="is-active">
+						<b-icon icon="calendar" /> Купити абонемент
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/settings" exact-active-class="is-active">
 						<b-icon icon="apps" /> Налаштування
 					</nuxt-link>
