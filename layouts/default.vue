@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div class="ms">
 		<nav class="navbar header has-shadow is-primary" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
-				<img src="~assets/buefy.png" alt="Buefy" height="28">
+				<div class="logo">VueFitness</div>
 			</a>
 
 			<div class="navbar-burger">
@@ -24,23 +24,18 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/cabinet/gyms">
-						<b-icon icon="account" /> Вибрати зал
+					<nuxt-link to="/cabinet/gyms" exact-active-class="is-active">
+						<b-icon icon="clock" /> Вибрати зал
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/cabinet">
-						<b-icon icon="android-debug-bridge" /> Майнкрафт - ета мая жизнь
-					</nuxt-link>
-				</li>
-				<li>
-					<nuxt-link to="/settings">
+					<nuxt-link to="/settings" exact-active-class="is-active">
 						<b-icon icon="apps" /> Налаштування
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/statistic">
-						<b-icon icon="analytics-outline" /> Статистика
+					<nuxt-link to="/statistic" exact-active-class="is-active">
+						<b-icon icon="account"/> Статистика
 					</nuxt-link>
 				</li>
 				<li>
@@ -67,3 +62,12 @@ export default {
   	}
 }
 </script>
+
+<style scoped>
+	.logo{
+		font-size: 35px;
+		font-weight: bold;
+		color:white;
+		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	}
+</style>

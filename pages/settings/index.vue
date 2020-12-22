@@ -7,12 +7,15 @@
                 <h2 class="subtitle">Email Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notEN" @input="notification()">
+
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch :value="true">
+
+                    <b-switch v-model="notET" @input="notification()">
+
                         Training Notifications
                     </b-switch>
                 </div>
@@ -21,26 +24,17 @@
                 <h2 class="subtitle">Telegram Notifications</h2>
                 <hr>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notTN" @input="notification()">
+
                         News and Tips Notifications
                     </b-switch>
                 </div>
                 <div class="field">
-                    <b-switch :value="true">
+                    <b-switch v-model="notTT" @input="notification()">
+
                         Training Notifications
                     </b-switch>
                 </div>
-
-                <br>
-                <h1 class="title">Theme Settings</h1>
-                <hr class="has-background-link">
-
-                <div class="field">
-                    <b-switch>
-                        Dark theme
-                    </b-switch>
-                </div>
-
 
                 <br>
                 <h1 class="title">Profile Settings</h1>
@@ -58,7 +52,9 @@
                             <h2 class="subtitle">Profile photo</h2>
                             <hr>
                             <b-field label="PhotoURL" message="">
-                                <b-input id="imgSrc" type="text" />
+
+                                <b-input v-model="imgSrc" type="text" />
+
                             </b-field>
                         </div>
                     </div>
@@ -66,13 +62,15 @@
 
                 <div class="column is-one-quarter">
                     <b-field label="Phone" message="">
-                        <b-input id="phone" type="phone" maxlength="30" />
+
+                        <b-input v-model="phone" type="phone" maxlength="30" />
                     </b-field>
                     <b-field label="First Name" message="">
-                        <b-input id="firstname" type="text" maxlength="30" />
+                        <b-input v-model="firstname" type="text" maxlength="30" />
                     </b-field>
                     <b-field label="Last Name" message="">
-                        <b-input id="lastname" type="text" maxlength="30" />
+                        <b-input v-model="lastname" type="text" maxlength="30" />
+
                     </b-field>
                     <b-button type="is-link is-light" @click="changeProfileSettings()">Save profile settings</b-button>
                 </div>
@@ -104,15 +102,30 @@
 
     const fireDb = firebase.firestore()
     var ref;
+
+    var temp;
+
     export default {
-        mounted(){
-            ref = fireDb.collection('users').doc(this.$store.state.user.uid)
+        name: 'Settings',
+        data () {
+			return {
+                user: null,
+                notTT:false,
+                notTN:false,
+                notET:false,
+                notEN:false,
+                firstname: null,
+                lastname: null,
+                phone: null,
+                imgSrc: null
+			}
+        },
+        beforeCreate(){
+            ref = fireDb.collection('users').doc(this.$store.state.user.user.uid)
             ref.get().then(function(doc) {
             if (doc.exists) {
-                document.getElementById('firstname').value = doc.data().firstname;
-                document.getElementById('lastname').value = doc.data().lastname;
-                document.getElementById('phone').value = doc.data().phone;
-                document.getElementById('imgSrc').value = doc.data().imgSrc;
+                temp = Object.assign({}, doc.data());
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -120,9 +133,31 @@
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
-    
+
+        },
+        mounted(){
+                setTimeout(() => {
+                    this.firstname = temp.firstname; 
+                    this.lastname = temp.lastname;
+                    this.phone = temp.phone;
+                    this.imgSrc = temp.imgSrc;
+                    this.$refs.myImage.src = temp.imgSrc;
+                    this.notEN = temp.notificationEmailNews;
+                    this.notTN = temp.notificationTelegramNews;
+                    this.notET = temp.notificationEmailTraining;
+                    this.notTT = temp.notificationTelegramTraining;
+                },700);
         },
         methods:{
+            notification(){
+                ref.update({
+                    notificationEmailNews: this.notEN,
+                    notificationTelegramNews: this.notTN,
+                    notificationEmailTraining: this.notET,
+                    notificationTelegramTraining: this.notTT
+                })
+            },
+
             changeProfileSettings(){
                 this.$refs.myImage.src = document.getElementById('imgSrc').value
                 ref.update({
@@ -138,8 +173,10 @@
             }
             ,
             changePassword(){
-                if(document.getElementById('nPas').value==document.getElementById('rPas').value){
-                    this.$store.state.user.updatePassword(document.getElementById('rPas').value)
+
+                if(document.getElementById('nPas').value==document.getElementById('rPas').value & document.getElementById('nPas').value!='' & document.getElementById('rPas').value!=''){
+                    this.$store.state.user.user.updatePassword(document.getElementById('rPas').value)
+
 
                     this.$notify.success({
                                 title: 'Success!',

@@ -48,6 +48,7 @@
       :chartdata="chartData"
       :options="chartOptions"
     />
+
   </section>
 </template>
 
@@ -62,16 +63,16 @@ import Doughnut from "~/components/Doughnut";
 
 const fireDb = firebase.firestore();
 var ref;
-var data = [];
+var data;
 export default {
   extends: Bar,
   mounted() {
-    ref = fireDb.collection("statistic").doc(this.$store.state.user.uid);
+    ref = fireDb.collection("statistic").doc(this.$store.state.user.user.uid);
     ref
       .get()
       .then(function (doc) {
         if (doc.exists) {
-          data = doc.data();
+          data = Object.assign({}, doc.data());
         } else {
           console.log("No such document!");
         }
@@ -121,7 +122,6 @@ export default {
       ],
       labels: ["presence", "absence"],
     };
-
     this.workoutData = {
       datasets: [
         {
