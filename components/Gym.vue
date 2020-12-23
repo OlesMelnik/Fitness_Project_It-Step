@@ -4,7 +4,7 @@
 		Gym #{{index+1}}<br>
 		Street: {{g.street}}<br>
 		Price: {{g.price}}/1H<br>
-		<b-button v-bind:type="{'is-success':true, 'is-light':selectedGym}" @click="selectGym(index)">
+		<b-button v-bind:type="{'is-link':true, 'is-light':selectedGym}" @click="selectGym(index)">
 			{{selectedGym?'Вибрати':'Зал вибраний'}}
 		</b-button>
 	</div>
@@ -35,7 +35,7 @@ export default {
 		padding-bottom: 10px;
 	}
 	.selectedGym{
-		border: 1px solid green;
+		border: 1px solid #8c67ef;
 	}
 	.gym img{
 		width: 100%;

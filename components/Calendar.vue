@@ -12,7 +12,7 @@ var ref;
 let temp = [];
 let eve;
 let eventData = [];
-
+var ref2;
 export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -42,6 +42,7 @@ export default {
   },
   mounted(){
     ref = fireDb.collection('lesson')
+
     ref.get()
     .then(function(querySnapshot) {
       temp = querySnapshot.docs

@@ -9,17 +9,17 @@
                     <div class="block">
                         <b-radio v-model="radio"
                             name="name"
-                            native-value="Flint">
+                            native-value="Дрищ">
                             Дрищ
                         </b-radio>
                         <b-radio v-model="radio"
                             name="name"
-                            native-value="Silver">
+                            native-value="Бро">
                             Бро
                         </b-radio>
                         <b-radio v-model="radio"
                             name="name"
-                            native-value="Jack">
+                            native-value="Мощь">
                             Мощь
                         </b-radio>
                     </div>
@@ -49,6 +49,7 @@
     export default {
         data () {
 			return {
+                radio:null,
                 cardnumber:null,
                 phone:null,
                 code:null,
@@ -73,9 +74,11 @@
             pay(){
                 this.userphone = temp.phone
                 if(this.phone == this.userphone && this.code =='12345'){
-
-
-                    this.$router.push('/cabinet')
+                    ref.update({
+                        season_ticket: this.radio
+                    })
+                    console.log(this.radio)
+                    //this.$router.push('/cabinet')
                     this.$notify.success({
 							title: 'Найс!',
                             message: 'Оплата пройшла успішно'

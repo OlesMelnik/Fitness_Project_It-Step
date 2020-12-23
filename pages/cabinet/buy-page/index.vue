@@ -10,7 +10,7 @@
             <br>
             <br>
             <nuxt-link to="/cabinet/buy-page/pay">
-                <b-button type="is-link is-light" >Купити</b-button>
+                <b-button type="is-link is-light" @click="adhs()">Купити</b-button>
             </nuxt-link>
         </div>
     </div>
@@ -22,7 +22,6 @@
 <script>
 
     export default {
-       
         data() {
             return {
                 data: [
