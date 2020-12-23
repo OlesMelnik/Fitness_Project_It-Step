@@ -71,7 +71,7 @@
 		mounted(){
 			setTimeout(() => {
 				this.tempArr=temp
-			},700)
+			},1000)
 		}
 		}
 </script>
