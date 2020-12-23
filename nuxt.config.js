@@ -40,7 +40,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     //https://www.npmjs.com/package/nuxt-izitoast - вспливаючі повідомлення
-    'nuxt-izitoast'
+    'nuxt-izitoast',
+    'cookie-universal-nuxt',
   ],
 
 	izitoast: {

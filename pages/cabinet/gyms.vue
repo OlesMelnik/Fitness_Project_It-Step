@@ -31,9 +31,7 @@
 							</template>
 						</b-datetimepicker>
 					</b-field>
-					<nuxt-link to="/cabinet/buy-page/paygym">
-						<b-button class="column" type="is-link">Buy</b-button>
-					</nuxt-link>
+					<b-button class="column" type="is-link" @click="buy()">Buy</b-button>
 				<br>
 				<div>
 					You have chosen a gym on the street {{gyms[selectedGym].street}} by {{gyms[selectedGym].price}} UAH.
@@ -63,6 +61,19 @@
 
 		components: {
 			Card
+		},
+		methods: {
+			buy(){
+				var info = {
+					'selectedGym': this.selectedGym,
+					'date': this.datetime,
+				}
+				this.$cookies.set('info', info, {
+					path: '/',
+					maxAge: 60 * 60 * 24 * 7
+				})
+				this.$router.push('/cabinet/buy-page/paygym')
+			}
 		}
 	}
 </script>

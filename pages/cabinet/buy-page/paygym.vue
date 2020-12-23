@@ -2,6 +2,7 @@
     <section class='section'>
     <div class="is-desktop">
         <div class="content columms is-centered">
+			{{info}}
 			<div class="card column is-two-thirds">
 					<b-field label="Card Number" message="">
 						<b-input type="text" v-model="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="30" />
@@ -26,6 +27,13 @@
 
 <script>
 export default {
-    
+	data() {
+		return {
+			info: null
+		}
+	},
+    created(){
+		this.info = this.$cookies.get('info')
+	}
 }
 </script>
