@@ -6,6 +6,23 @@
 					<b-field label="Card Number" message="">
 						<b-input type="text" v-model="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="30" />
 					</b-field>
+                    <div class="block">
+                        <b-radio v-model="radio"
+                            name="name"
+                            native-value="Flint">
+                            Дрищ
+                        </b-radio>
+                        <b-radio v-model="radio"
+                            name="name"
+                            native-value="Silver">
+                            Бро
+                        </b-radio>
+                        <b-radio v-model="radio"
+                            name="name"
+                            native-value="Jack">
+                            Мощь
+                        </b-radio>
+                    </div>
 					<b-field label="Phone" message="">
 						<b-input type="phone" v-model="phone" placeholder="phone" maxlength="30" />
 					</b-field>
