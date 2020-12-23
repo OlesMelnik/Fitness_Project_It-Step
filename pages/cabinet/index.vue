@@ -5,6 +5,10 @@
 			</card> -->
 			<h1 class="title">News</h1>
             <hr class="has-background-link">
+			
+			<span v-if="tempArr.length==0">
+    			<lottie :width="300" :options="lottieOptions" v-on:animCreated="handleAnimation" />
+			</span>
 			<div class="news">
 				<div class="n" v-for="i in tempArr" v-bind:key="i">
 					<div class="img">
@@ -22,6 +26,9 @@
 <script>
 import Card from '~/components/Card'
 
+import lottie from 'vue-lottie/src/lottie.vue'
+import * as animationData from "~/assets/animations/25126-pixel-duck.json";
+
 import firebase from 'firebase/app'
 import '@firebase/firestore'
 const fireDb = firebase.firestore()
@@ -31,11 +38,13 @@ var temp
 export default {
 	name: 'HomePage',
 	components: {
-		Card
+		Card, lottie
 	},
 	data(){
 		return{
-			tempArr: []
+			tempArr: [],
+			anim: null,
+			lottieOptions: { animationData: animationData.default }
 		}
 	},
 	created(){
@@ -52,6 +61,11 @@ export default {
 		setTimeout(() => {
 			this.tempArr=temp
 		},1000)
+	},
+	methods: {
+		handleAnimation: function (anim) {
+			this.anim = anim;
+		}
 	}
 }
 </script>

@@ -3,6 +3,8 @@
 		<nav class="navbar header has-shadow is-primary" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
+				<lottie :width="60" :options="lottieOptions" v-on:animCreated="handleAnimation" />
+			
 				<div class="logo">VueFitness</div>
 			</a>
 
@@ -16,7 +18,7 @@
 
 		<section class="main-content columns">
 		<aside class="column is-2 section">
-			<p class="menu-label is-hidden-touch">Меню</p>
+			<p class="menu-label is-hidden-touch">Menu</p>
 			<ul class="menu-list">
 				<li>
 					<nuxt-link to="/cabinet" exact-active-class="is-active">
@@ -66,15 +68,26 @@
 </template>
 
 <script>
-export default {
-	data () {
-		return {
+	import lottie from 'vue-lottie/src/lottie.vue'
+	import * as animationData from "~/assets/animations/42343-jerry-the-speed-walking-turkey.json";
 
+	export default {
+		components: {
+			lottie
+		},
+		data () {
+			return {
+				anim: null,
+				lottieOptions: { animationData: animationData.default }
+			}
+		},
+		methods: {
+			handleAnimation: function (anim) {
+				this.anim = anim;
+			}
 		}
-  	}
-}
+	}
 </script>
-
 <style scoped>
 	.logo{
 		font-size: 35px;

@@ -2,14 +2,20 @@
 	<div class="ms">
 		<section class="section columns is-centered">
 			<div class="column main card is-two-thirds">
-				<div class="card logo has-background-link">VueFitness</div>
+				<div class="card logo has-background-link">
+					<div class="an">
+						<lottie :width="150" :options="lottieOptions2" v-on:animCreated="handleAnimation" />
+					</div>
+					VueFitness
+				</div>
+
 				<br>
 				<h1 class='card-header-title is-centered'>What we do?</h1>
 				<hr class="has-background-link">
-				We want to help you live a fit and healthy lifestyle!
-				We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
-				We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
-				Our awesome team is always keen to help, so please call us to discuss your needs.
+					We want to help you live a fit and healthy lifestyle!
+					We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
+					We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
+					Our awesome team is always keen to help, so please call us to discuss your needs.
 				<hr>
 				<br>
 				<br>
@@ -25,6 +31,9 @@
 				<h1 class="title">News</h1>
 				<hr class="has-background-link">
 				<div class="news">
+					<span v-if="tempArr.length==0">
+						<lottie :width="300" :options="lottieOptions" v-on:animCreated="handleAnimation" />
+					</span>
 					<div class="n" v-for="i in tempArr" v-bind:key="i">
 						<div class="img">
 							<img class="imgCard" :src= "i.data().imgSrc">
@@ -41,6 +50,10 @@
 </template>
 
 <script>
+	import lottie from 'vue-lottie/src/lottie.vue'
+	import * as animationData from "~/assets/animations/25126-pixel-duck.json";
+	import * as animationData2 from "~/assets/animations/42343-jerry-the-speed-walking-turkey.json";
+
 	import firebase from 'firebase/app'
 	import '@firebase/firestore'
 	const fireDb = firebase.firestore()
@@ -52,32 +65,45 @@
 		name: 'Main',
 
 		components: {
+			lottie
 		},
 		data(){
-		return{
-			tempArr: []
-		}
+			return{
+				tempArr: [],
+				anim: null,
+				lottieOptions: { animationData: animationData.default },
+				lottieOptions2: { animationData: animationData2.default }
+			}
 		},
 		created(){
-				ref = fireDb.collection('events').where("event", "==", true)
-				ref.get()
-				.then(function(querySnapshot) {
-					temp = querySnapshot.docs
-				})
-				.catch(function(error) {
-					console.log("Error getting documents: ", error);
-				});
+			ref = fireDb.collection('events').where("event", "==", true)
+			ref.get()
+			.then(function(querySnapshot) {
+				temp = querySnapshot.docs
+			})
+			.catch(function(error) {
+				console.log("Error getting documents: ", error);
+			});
 		},
 		mounted(){
 			setTimeout(() => {
 				this.tempArr=temp
 			},1000)
+		},
+		methods: {
+			handleAnimation: function (anim) {
+				this.anim = anim;
+			}
 		}
-		}
+	}
 </script>
 
 <style scoped>
 
+	.an{
+		position: absolute;
+		margin-top: 0px
+	}
 	.news{
 		width: 100%;
 		display: inline-block;
