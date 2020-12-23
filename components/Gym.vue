@@ -3,9 +3,9 @@
 		<img :src="g.image" :alt="'Gym #'+index">
 		Gym #{{index+1}}<br>
 		Street: {{g.street}}<br>
-		Price: {{g.price}}/1H<br>
+		Price: {{g.price}}/3Hour<br>
 		<b-button v-bind:type="{'is-link':true, 'is-light':selectedGym}" @click="selectGym(index)">
-			{{selectedGym?'Вибрати':'Зал вибраний'}}
+			{{selectedGym?'Choose':'Gym selected'}}
 		</b-button>
 	</div>
 </template>

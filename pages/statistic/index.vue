@@ -3,17 +3,17 @@
     <h1 class="title">User Statistic</h1>
     <hr class="has-background-link" />
     <h2>
-      Ваша відвідуваність: <strong>{{ attendance }}%</strong>
+      Your attendance: <strong>{{ attendance }}%</strong>
     </h2>
     <h2>
-      Середнє кількість спалених калорій за тренировку:
+      The average number of calories burned per workout:
       <strong>{{ cal }}</strong>
     </h2>
     <h2>
-      Ваш рівень: <strong>{{ level }}</strong>
+      Your level: <strong>{{ level }}</strong>
     </h2>
     <h2>
-      Виконаний курс: <strong>{{ progress }}%</strong>
+      Completed course: <strong>{{ progress }}%</strong>
     </h2>
     <br>
 

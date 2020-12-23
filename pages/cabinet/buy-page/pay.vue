@@ -10,17 +10,17 @@
                         <b-radio v-model="radio"
                             name="name"
                             native-value="Дрищ">
-                            Дрищ
+                            Amateur
                         </b-radio>
                         <b-radio v-model="radio"
                             name="name"
                             native-value="Бро">
-                            Бро
+                            Bro
                         </b-radio>
                         <b-radio v-model="radio"
                             name="name"
                             native-value="Мощь">
-                            Мощь
+                            Superman
                         </b-radio>
                     </div>
 					<b-field label="Phone" message="">
@@ -29,7 +29,7 @@
                     <b-field label="Confirm code" message="">
 						<b-input type="text" v-model="code" placeholder="xxxxx" maxlength="5" />
 					</b-field>
-            		<b-button type="is-link" @click="pay()">Оплатити</b-button>
+            		<b-button type="is-link" @click="pay()">Buy Season Ticket</b-button>
             </div>
         </div>
     </div>
@@ -85,14 +85,14 @@
                     console.log(this.radio)
                     this.$router.push('/cabinet')
                     this.$notify.success({
-							title: 'Найс!',
-                            message: 'Оплата пройшла успішно'
+							title: 'Nice!',
+                            message: 'Payment was successful'
 				    }) 
                 }
                 else{
                     this.$notify.error({
-                                title: 'Кхм...',
-                                message: 'Дані введено невірно'
+                                title: 'Hmm...',
+                                message: 'Data entered incorrectly'
                     })
                 }
             }

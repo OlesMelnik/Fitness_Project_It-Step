@@ -10,7 +10,7 @@
             <br>
             <br>
             <nuxt-link to="/cabinet/buy-page/pay">
-                <b-button type="is-link is-light" @click="adhs()">Купити</b-button>
+                <b-button type="is-link is-light" @click="adhs()">Buy Season Ticket</b-button>
             </nuxt-link>
         </div>
     </div>
@@ -25,44 +25,44 @@
         data() {
             return {
                 data: [
-                    { 'Name': 'Дрищ','special-train':3,'t-shirt': '❌','wall-ty':"❌",'ownlocker':'❌','vip-place':'❌','price': '600', 'date': '1 місяць' },
-                    { 'Name': 'Бро','special-train':5,'t-shirt': '✔️','wall-ty':"✔️",'ownlocker':'❌','vip-place':'❌','price': '1000', 'date': '1 місяць' },
-                    { 'Name': 'Мощь','special-train':10,'t-shirt':'✔️','wall-ty':"✔️" ,'ownlocker':'✔️','vip-place':'✔️','price': '3000', 'date': '3 місяців' }
+                    { 'Name': 'Amateur','special-train':3,'t-shirt': '❌','wall-ty':"❌",'ownlocker':'❌','vip-place':'❌','price': '1000', 'date': '1 month' },
+                    { 'Name': 'Bro','special-train':5,'t-shirt': '✔️','wall-ty':"✔️",'ownlocker':'❌','vip-place':'❌','price': '1500', 'date': '1 month' },
+                    { 'Name': 'Superman','special-train':10,'t-shirt':'✔️','wall-ty':"✔️" ,'ownlocker':'✔️','vip-place':'✔️','price': '3000', 'date': '3 months' }
                    
                 ],
                 columns: [
                     {
                         field: 'Name',
-                        label: 'Абонементи',
+                        label: 'Season ticket',
                     },
                     {
                         field: 'special-train',
-                        label: 'Спеціалізовані тренування',
+                        label: 'Special training',
                     },
                     {
                         field: 'ownlocker',
-                        label: 'Індивідуальна шафка',
+                        label: 'Individual locker',
                     },
                     {
                         field: 'vip-place',
-                        label: 'Доступ в закриту VIP-групу',
+                        label: 'Access to a closed VIP group',
                     },
                     {
                         field: 'wall-ty',
-                        label: 'Розміщення на стіні подяки',
+                        label: 'Placing on the Thanksgiving wall',
                     },
                     {
                         field: 't-shirt',
-                        label: 'Футболка Еверест',
+                        label: 'T-shirt "Everest"',
                     },
                     {
                         field: 'date',
-                        label: 'Час',
+                        label: 'time',
                         centered: true
                     },
                     {
                         field: 'price',
-                        label: 'Ціна',
+                        label: 'Price',
                     },
                     
                 ]

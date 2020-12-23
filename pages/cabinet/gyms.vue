@@ -8,9 +8,10 @@
 					<Gym v-for="(g, index) in gyms" v-bind:key="index" :g="g" :index="index" :selectedGym="selectedGym!=index" />
 				</div>
 			</div>
+
 			<div class="block" v-if="selectedGym>=0">
 				
-				<b-field label="Виберіть дату">
+				<b-field label="Choose date :">
 					<b-datetimepicker v-model="datetime"
 						style="width: 200px"
 						placeholder="Click to select...">
@@ -30,8 +31,10 @@
 						</template>
 					</b-datetimepicker>
 				</b-field>
-
-				Ви вибрали зал на вулиці {{gyms[selectedGym].street}}, за {{gyms[selectedGym].price}} хрівєн.
+				<br>
+				<div>
+					You have chosen a gym on the street {{gyms[selectedGym].street}} by {{gyms[selectedGym].price}} UAH.
+				</div>
 			</div>
 	</section>
 </template>
@@ -45,9 +48,9 @@
 			data() {
 				return {
 					gyms: [
-						{street: 'Green st. 25', price: 100, image: 'https://i.pinimg.com/originals/44/99/95/449995ef1ce37086e6de72835c42efcb.jpg'},
-						{street: 'Yellow st. 25', price: 120, image: 'https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg'},
-						{street: 'Red st. 25', price: 55, image: 'https://s0.rbk.ru/v6_top_pics/media/img/2/82/755586211300822.png'},
+						{street: 'Green st. 25', price: 110, image: 'https://i.pinimg.com/originals/44/99/95/449995ef1ce37086e6de72835c42efcb.jpg'},
+						{street: 'Yellow st. 25', price: 150, image: 'https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg'},
+						{street: 'Red st. 25', price: 100, image: 'https://s0.rbk.ru/v6_top_pics/media/img/2/82/755586211300822.png'},
 					],
 					selectedGym: -1,
 					datetime: new Date(),

@@ -3,24 +3,23 @@
 		<div class="card">
 			<div class="box">
 				<div class="content">
-					
 					<b-icon
 						icon="account"
 						size="is-small">
 					</b-icon>
-					Реєстрація
-					<b-field label="Пошта" message="">
-						<b-input type="text" v-model="email" placeholder="Введіть ваш e-mail" maxlength="30" />
+					Registration
+					<b-field label="E-mail" message="">
+						<b-input type="text" v-model="email" placeholder="Enter your e-mail" maxlength="30" />
 					</b-field>
-					<b-field label="Пароль" message="">
-						<b-input type="password" v-model="password" placeholder="Введіть ваш пароль" maxlength="30" />
+					<b-field label="Password" message="">
+						<b-input type="password" v-model="password" placeholder="Enter your password" maxlength="30" />
 					</b-field>
-					<b-field label="Підтвердіть пароль" message="">
-						<b-input type="password" v-model="rpassword" placeholder="Підтвердіть ваш пароль" maxlength="30" />
+					<b-field label="Confirm password" message="">
+						<b-input type="password" v-model="rpassword" placeholder="Confirm your password" maxlength="30" />
 					</b-field>
-            		<b-button type="is-link" @click="register()">Зареєструватись!</b-button>
+            		<b-button type="is-link" @click="register()">Register!</b-button>
 					<nuxt-link to="/login">
-						<b-button type="is-link is-light">Вже є аккаунт, авторизуватись</b-button>
+						<b-button type="is-link is-light">You already have an account to log in</b-button>
 					</nuxt-link>
 				</div>
 			</div>
@@ -57,8 +56,8 @@
 					//Поправте пліз назву методу
         			.then(data => {
 						this.$notify.success({
-							title: 'Гуд!',
-							message: 'Аккаунт успішно створений'
+							title: 'Good!',
+							message: 'Account successfully created'
 						})
 						const user = firebase.auth().currentUser
 						const fireDb = firebase.firestore()
@@ -86,7 +85,7 @@
 							calories:[],
 							date:[],
 							heartBit:[],
-							level:'Новачок',
+							level:'Noob',
 							presence:0,
 							progress:0,
 							workout:[],
@@ -96,19 +95,18 @@
 						//this.$store.state.user = user
 						//this.$store.commit('user/logUser',user)
 
-
 						this.$router.push('/login')
 					})
         			.catch(err => {
 						this.$notify.error({
-							title: 'Ууупс',
-							message: 'Введений e-mail вже використовується'
+							title: 'Ooops!',
+							message: 'The entered e-mail is already in use'
 						})
 					});
 				}else{
 					this.$notify.error({
-						title: 'Ууупс',
-						message: 'Перевірте введену інформацію'
+						title: 'Ooops!',
+						message: 'Check the information entered'
 					})
 				}
 			}

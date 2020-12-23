@@ -20,39 +20,39 @@
 			<ul class="menu-list">
 				<li>
 					<nuxt-link to="/cabinet" exact-active-class="is-active">
-						<b-icon icon="home" /> Головна
+						<b-icon icon="home" /> Main
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/gyms" exact-active-class="is-active">
-						<b-icon icon="clock" /> Вибрати зал
+						<b-icon icon="clock" /> Choose a gym
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/calendar" exact-active-class="is-active">
-						<b-icon icon="calendar" /> Календар
+						<b-icon icon="calendar" /> Calendar
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/buy-page" exact-active-class="is-active">
-						<b-icon icon="ticket" /> Купити абонемент
+						<b-icon icon="ticket" /> Buy season ticket
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/statistic" exact-active-class="is-active">
-						<b-icon icon="account"/> Статистика
+						<b-icon icon="account"/> Statistics
 					</nuxt-link>
 				</li>
 				<br>
 				<br>
 				<li>
 					<nuxt-link to="/settings" exact-active-class="is-active">
-						<b-icon icon="apps" /> Налаштування
+						<b-icon icon="apps" /> Settings
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/">
-						<b-icon icon="exit-to-app" /> Вихід
+						<b-icon icon="exit-to-app" /> Log out
 					</nuxt-link>
 				</li>
 			</ul>

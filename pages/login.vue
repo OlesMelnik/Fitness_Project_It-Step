@@ -8,18 +8,18 @@
 						icon="account"
 						size="is-small">
 					</b-icon>
-					Авторизація
-					<b-field label="Логін:" message="">
+					Аuthorization
+					<b-field label="E-mail" message="">
 
 						<b-input type="text" value="svyat@gmail.com" v-model="email" placeholder="email" maxlength="30" />
 					</b-field>
-					<b-field label="Пароль:" message="">
+					<b-field label="Password " message="">
 						<b-input type="password" value="qwertyuiop" v-model="password" placeholder="password" maxlength="30" />
 
 					</b-field>
-            		<b-button type="is-link" @click="login()">Вхід</b-button>
+            		<b-button type="is-link" @click="login()">Log in</b-button>
 					<nuxt-link to="/register">
-						<b-button type="is-link is-light">Реєстрація</b-button>
+						<b-button type="is-link is-light">Registration</b-button>
 					</nuxt-link>
 				</div>
 			</div>
@@ -55,8 +55,8 @@
 					firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         			.then(data => {
 						    this.$notify.success({
-						    	title: 'Велкам!',
-						    	message: 'Авторизація успішна'
+						    	title: 'Welcome!',
+						    	message: 'Authorization successful'
 						    })
 						    const user = firebase.auth().currentUser
 						    this.$store.state.user.user = user
@@ -67,8 +67,8 @@
 					    })
         			.catch(err => {
 						    this.$notify.error({
-						    	title: 'Ууупс',
-						    	message: 'Логін/пароль неправильний'
+						    	title: 'Ooops!',
+						    	message: 'Login/Password incorrect'
 						    })
 					});
 
@@ -76,8 +76,8 @@
 
 				}else{
 					this.$notify.error({
-						title: 'Ууупс',
-						message: 'Поля повинні бути не порожні'
+						title: 'Ooops!',
+						message: 'Fields must not be blank'
 					})
 				}
 			}

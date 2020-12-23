@@ -4,16 +4,20 @@
 			<div class="column main card is-two-thirds">
 				<div class="card logo has-background-link">VueFitness</div>
 				<br>
-				<br>
-				Ну короче, тут якийсь лендінг, або подібна херня 👮‍♂️
+				<h1 class='card-header-title is-centered'>What we do?</h1>
+				<hr class="has-background-link">
+				We want to help you live a fit and healthy lifestyle!
+				We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
+				We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
+				Our awesome team is always keen to help, so please call us to discuss your needs.
 				<hr>
 				<br>
 				<br>
 				<nuxt-link to="/login">
-					<b-button type="is-link">Авторизація</b-button>
+					<b-button type="is-link">Аuthorization</b-button>
 				</nuxt-link>
 				<nuxt-link to="/register">
-					<b-button type="is-link">Реєстрація</b-button>
+					<b-button type="is-link">Registration</b-button>
 				</nuxt-link>
 				<br>
 				<br>
@@ -122,5 +126,9 @@
 		font-weight: bold;
 		color:white;
 		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	}
+	.card-header-title{
+		font-size: 38px;
+		font-weight: bold;
 	}
 </style>
