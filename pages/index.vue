@@ -25,6 +25,9 @@
 				<h1 class="title">News</h1>
 				<hr class="has-background-link">
 				<div class="news">
+					<span v-if="tempArr.length==0">
+						<lottie :width="300" :options="lottieOptions" v-on:animCreated="handleAnimation" />
+					</span>
 					<div class="n" v-for="i in tempArr" v-bind:key="i">
 						<div class="img">
 							<img class="imgCard" :src= "i.data().imgSrc">
@@ -41,6 +44,9 @@
 </template>
 
 <script>
+	import lottie from 'vue-lottie/src/lottie.vue'
+	import * as animationData from "~/assets/animations/25126-pixel-duck.json";
+
 	import firebase from 'firebase/app'
 	import '@firebase/firestore'
 	const fireDb = firebase.firestore()
@@ -52,28 +58,36 @@
 		name: 'Main',
 
 		components: {
+			lottie
 		},
 		data(){
-		return{
-			tempArr: []
-		}
+			return{
+				tempArr: [],
+				anim: null,
+				lottieOptions: { animationData: animationData.default }
+			}
 		},
 		created(){
-				ref = fireDb.collection('events').where("event", "==", true)
-				ref.get()
-				.then(function(querySnapshot) {
-					temp = querySnapshot.docs
-				})
-				.catch(function(error) {
-					console.log("Error getting documents: ", error);
-				});
+			ref = fireDb.collection('events').where("event", "==", true)
+			ref.get()
+			.then(function(querySnapshot) {
+				temp = querySnapshot.docs
+			})
+			.catch(function(error) {
+				console.log("Error getting documents: ", error);
+			});
 		},
 		mounted(){
 			setTimeout(() => {
 				this.tempArr=temp
 			},1000)
+		},
+		methods: {
+			handleAnimation: function (anim) {
+				this.anim = anim;
+			}
 		}
-		}
+	}
 </script>
 
 <style scoped>
