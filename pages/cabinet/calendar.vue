@@ -1,5 +1,10 @@
 <template>
-  <Calendar/>
+
+  <section class='section'>
+      <h1 class="title">Calendar</h1>
+      <hr class="has-background-link">
+    <Calendar/>
+  </section>
 </template>
 
 <script>
