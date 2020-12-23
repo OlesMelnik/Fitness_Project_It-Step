@@ -70,10 +70,6 @@
             }
         }
     }
-
-    
-       
-
 </script>
 
 <style scoped>

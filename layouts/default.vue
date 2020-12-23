@@ -35,17 +35,19 @@
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/buy-page" exact-active-class="is-active">
-						<b-icon icon="calendar" /> Купити абонемент
-					</nuxt-link>
-				</li>
-				<li>
-					<nuxt-link to="/settings" exact-active-class="is-active">
-						<b-icon icon="apps" /> Налаштування
+						<b-icon icon="ticket" /> Купити абонемент
 					</nuxt-link>
 				</li>
 				<li>
 					<nuxt-link to="/statistic" exact-active-class="is-active">
 						<b-icon icon="account"/> Статистика
+					</nuxt-link>
+				</li>
+				<br>
+				<br>
+				<li>
+					<nuxt-link to="/settings" exact-active-class="is-active">
+						<b-icon icon="apps" /> Налаштування
 					</nuxt-link>
 				</li>
 				<li>
