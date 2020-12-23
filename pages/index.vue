@@ -2,14 +2,20 @@
 	<div class="ms">
 		<section class="section columns is-centered">
 			<div class="column main card is-two-thirds">
-				<div class="card logo has-background-link">VueFitness</div>
+				<div class="card logo has-background-link">
+					<div class="an">
+						<lottie :width="150" :options="lottieOptions2" v-on:animCreated="handleAnimation" />
+					</div>
+					VueFitness
+				</div>
+
 				<br>
 				<h1 class='card-header-title is-centered'>What we do?</h1>
 				<hr class="has-background-link">
-				We want to help you live a fit and healthy lifestyle!
-				We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
-				We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
-				Our awesome team is always keen to help, so please call us to discuss your needs.
+					We want to help you live a fit and healthy lifestyle!
+					We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
+					We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
+					Our awesome team is always keen to help, so please call us to discuss your needs.
 				<hr>
 				<br>
 				<br>
@@ -46,6 +52,7 @@
 <script>
 	import lottie from 'vue-lottie/src/lottie.vue'
 	import * as animationData from "~/assets/animations/25126-pixel-duck.json";
+	import * as animationData2 from "~/assets/animations/42343-jerry-the-speed-walking-turkey.json";
 
 	import firebase from 'firebase/app'
 	import '@firebase/firestore'
@@ -64,7 +71,8 @@
 			return{
 				tempArr: [],
 				anim: null,
-				lottieOptions: { animationData: animationData.default }
+				lottieOptions: { animationData: animationData.default },
+				lottieOptions2: { animationData: animationData2.default }
 			}
 		},
 		created(){
@@ -92,6 +100,10 @@
 
 <style scoped>
 
+	.an{
+		position: absolute;
+		margin-top: 0px
+	}
 	.news{
 		width: 100%;
 		display: inline-block;

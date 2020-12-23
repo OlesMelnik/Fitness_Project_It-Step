@@ -88,7 +88,6 @@
 		}
 	}
 </script>
-
 <style scoped>
 	.logo{
 		font-size: 35px;
