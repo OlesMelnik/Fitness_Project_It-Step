@@ -73,12 +73,17 @@
         methods:{
             pay(){
                 this.userphone = temp.phone
+                temp = 30
+                if(this.radio == 'Мощь'){
+                    temp = 90
+                }
                 if(this.phone == this.userphone && this.code =='12345'){
                     ref.update({
-                        season_ticket: this.radio
+                        season_ticket: this.radio,
+                        attendance: temp
                     })
                     console.log(this.radio)
-                    //this.$router.push('/cabinet')
+                    this.$router.push('/cabinet')
                     this.$notify.success({
 							title: 'Найс!',
                             message: 'Оплата пройшла успішно'

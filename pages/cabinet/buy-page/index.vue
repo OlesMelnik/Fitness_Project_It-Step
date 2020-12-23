@@ -27,7 +27,7 @@
                 data: [
                     { 'Name': 'Дрищ','special-train':3,'t-shirt': '❌','wall-ty':"❌",'ownlocker':'❌','vip-place':'❌','price': '600', 'date': '1 місяць' },
                     { 'Name': 'Бро','special-train':5,'t-shirt': '✔️','wall-ty':"✔️",'ownlocker':'❌','vip-place':'❌','price': '1000', 'date': '1 місяць' },
-                    { 'Name': 'Мощь','special-train':10,'t-shirt':'✔️','wall-ty':"✔️" ,'ownlocker':'✔️','vip-place':'✔️','price': '3000', 'date': '6 місяців' }
+                    { 'Name': 'Мощь','special-train':10,'t-shirt':'✔️','wall-ty':"✔️" ,'ownlocker':'✔️','vip-place':'✔️','price': '3000', 'date': '3 місяців' }
                    
                 ],
                 columns: [

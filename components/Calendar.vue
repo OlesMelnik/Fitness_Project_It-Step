@@ -46,7 +46,7 @@ export default {
     ref = fireDb.collection('lesson')
     ref2 = fireDb2.collection('users').doc(this.$store.state.user.user.uid)
     ref2.get().then((doc)=>{
-      temp2;
+      temp2 = doc.data().season_ticket;
     }).catch(function(error) {
                 console.log("Error getting document:", error);
     });
@@ -64,10 +64,11 @@ export default {
         let appData = dosa.data();
         let nice = [];
         appData.id = dosa.id;
-        nice.push(appData.id_users);
+        console.log('test', temp2)
+        nice.push(appData.season_ticket);
         nice.forEach(element => {
           for (let index = 0; index < element.length; index++) {
-            if(element[index] == this.$store.state.user.user.uid)
+            if(element[index] == temp2)
               events.push(appData);
           }
         });
