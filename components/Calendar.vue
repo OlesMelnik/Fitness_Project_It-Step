@@ -8,11 +8,13 @@ import '@firebase/firestore'
 import '@firebase/auth'
 
 const fireDb = firebase.firestore()
+const fireDb2 = firebase.firestore()
 var ref;
 let temp = [];
 let eve;
 let eventData = [];
 var ref2;
+var temp2;
 export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -42,6 +44,12 @@ export default {
   },
   mounted(){
     ref = fireDb.collection('lesson')
+    ref2 = fireDb2.collection('users').doc(this.$store.state.user.user.uid)
+    ref2.get().then((doc)=>{
+      temp2;
+    }).catch(function(error) {
+                console.log("Error getting document:", error);
+    });
 
     ref.get()
     .then(function(querySnapshot) {
