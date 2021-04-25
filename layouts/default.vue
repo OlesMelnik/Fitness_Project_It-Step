@@ -88,6 +88,11 @@
 		}
 	}
 </script>
+<style>
+	body, html{
+		background: rgb(12, 1, 26);
+	}
+</style>
 <style scoped>
 	.logo{
 		font-size: 35px;

@@ -8,7 +8,7 @@
 						icon="account"
 						size="is-small">
 					</b-icon>
-					Аuthorization
+					Аuthorization page
 					<b-field label="E-mail" message="">
 
 						<b-input type="text" value="svyat@gmail.com" v-model="email" placeholder="email" maxlength="30" />
