@@ -82,6 +82,11 @@
 				<br>
 				<br>
 				<li>
+					<nuxt-link to="/cabinet/payment" exact-active-class="is-active">
+						<b-icon icon="cash-multiple" /> Payments
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/settings" exact-active-class="is-active">
 						<b-icon icon="apps" /> Settings
 					</nuxt-link>
