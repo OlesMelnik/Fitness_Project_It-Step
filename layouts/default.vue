@@ -5,24 +5,8 @@
 				<b-navbar-item tag="router-link" :to="{ path: '/' }">
 					<lottie :width="60" :options="lottieOptions" v-on:animCreated="handleAnimation" />
 				
-					<div class="logo">VueFitness</div>
+					<div class="logo">Vue Learning Platform</div>
 				</b-navbar-item>
-			</template>
-			<template #start>
-				<b-navbar-item href="#">
-					Home
-				</b-navbar-item>
-				<b-navbar-item href="#">
-					Documentation
-				</b-navbar-item>
-				<!-- <b-navbar-dropdown label="Info">
-					<b-navbar-item href="#">
-						About
-					</b-navbar-item>
-					<b-navbar-item href="#">
-						Contact
-					</b-navbar-item>
-				</b-navbar-dropdown> -->
 			</template>
 
 			<template #end>
@@ -112,8 +96,8 @@
 		data () {
 			return {
 				userInfo: {
-					login: 'EnJay',
-					balance: 100,
+					login: 'Mykola',
+					balance: 101,
 				},
 				anim: null,
 				lottieOptions: { animationData: animationData.default }
