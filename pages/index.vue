@@ -6,16 +6,16 @@
 					<div class="an">
 						<lottie :width="150" :options="lottieOptions2" v-on:animCreated="handleAnimation" />
 					</div>
-					Vue Learning Platform
+					VueFitness
 				</div>
 
 				<br>
 				<h1 class='card-header-title is-centered'>What we do?</h1>
 				<hr class="has-background-link">
-					We want to help you learn something new!
-					We do our best to help you find the most suitable courses for you.
-					We offer a wide range of courses, videos, podcasts and more.
-					Our great team is always on hand to help, so please give us a call if you have any questions.
+					We want to help you live a fit and healthy lifestyle!
+					We do this by helping you find the most suitable equipment for your home gym, studio or commercial gym, keeping your budget, lifestyle and fitness goals in mind.
+					We stock a wide range of gym equipment, with strength equipment, cardio, cross training and so much more.
+					Our awesome team is always keen to help, so please call us to discuss your needs.
 				<hr>
 				<br>
 				<br>

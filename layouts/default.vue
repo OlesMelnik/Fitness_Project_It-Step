@@ -5,8 +5,24 @@
 				<b-navbar-item tag="router-link" :to="{ path: '/' }">
 					<lottie :width="60" :options="lottieOptions" v-on:animCreated="handleAnimation" />
 				
-					<div class="logo">Vue Learning Platform</div>
+					<div class="logo">VueFitness</div>
 				</b-navbar-item>
+			</template>
+			<template #start>
+				<b-navbar-item href="#">
+					Home
+				</b-navbar-item>
+				<b-navbar-item href="#">
+					Documentation
+				</b-navbar-item>
+				<!-- <b-navbar-dropdown label="Info">
+					<b-navbar-item href="#">
+						About
+					</b-navbar-item>
+					<b-navbar-item href="#">
+						Contact
+					</b-navbar-item>
+				</b-navbar-dropdown> -->
 			</template>
 
 			<template #end>
@@ -44,13 +60,8 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/cabinet/courses" exact-active-class="is-active">
-						<b-icon icon="clock" /> Choose a course
-					</nuxt-link>
-				</li>
-				<li>
-					<nuxt-link to="/cabinet/mentors" exact-active-class="is-active">
-						<b-icon icon="account" /> Choose a mentor
+					<nuxt-link to="/cabinet/gyms" exact-active-class="is-active">
+						<b-icon icon="clock" /> Choose a gym
 					</nuxt-link>
 				</li>
 				<li>
@@ -65,7 +76,7 @@
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/buy-page" exact-active-class="is-active">
-						<b-icon icon="ticket" /> Buy Coin
+						<b-icon icon="ticket" /> Buy season ticket
 					</nuxt-link>
 				</li>
 				<li>
@@ -106,8 +117,8 @@
 		data () {
 			return {
 				userInfo: {
-					login: 'Mykola',
-					balance: 101,
+					login: 'EnJay',
+					balance: 100,
 				},
 				anim: null,
 				lottieOptions: { animationData: animationData.default }

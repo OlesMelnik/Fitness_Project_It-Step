@@ -1,11 +1,11 @@
 <template>
-	<div v-bind:class="{course:true, selectedCourse:!selectedCourse}" >
-		<img :src="g.image" :alt="'Course #'+index">
-		Course #{{index+1}}<br>
+	<div v-bind:class="{gym:true, selectedGym:!selectedGym}" >
+		<img :src="g.image" :alt="'Gym #'+index">
+		Gym #{{index+1}}<br>
 		Street: {{g.street}}<br>
 		Price: {{g.price}}/3Hour<br>
-		<b-button v-bind:type="{'is-link':true, 'is-light':selectedCourse}" @click="selectCourse(index)">
-			{{selectedCourse?'Choose':'Course selected'}}
+		<b-button v-bind:type="{'is-link':true, 'is-light':selectedGym}" @click="selectGym(index)">
+			{{selectedGym?'Choose':'Gym selected'}}
 		</b-button>
 	</div>
 </template>
@@ -15,18 +15,18 @@ export default {
 	props: {
 		g: Object,
 		index: Number,
-		selectedCourse: Boolean
+		selectedGym: Boolean
 	},
 	methods: {
-		selectCourse(index){
-			this.$parent.selectedCourse = index
+		selectGym(index){
+			this.$parent.selectedGym = index
 		}
 	}
 }
 </script>
 
 <style scoped>
-	.course{
+	.gym{
 		width: 300px;
 		overflow: hidden;
 		margin: 10px;
@@ -34,10 +34,10 @@ export default {
 		border-radius: 22px;
 		padding-bottom: 10px;
 	}
-	.selectedCourse{
+	.selectedGym{
 		border: 1px solid #8c67ef;
 	}
-	.course img{
+	.gym img{
 		width: 100%;
 		height: 180px;
 		border-radius: 20px;

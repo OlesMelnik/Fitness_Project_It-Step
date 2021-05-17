@@ -1,15 +1,15 @@
 <template>
 	<section class="section">
-			<h1 class="title">Course selector</h1>
+			<h1 class="title">Gym selector</h1>
             <hr class="has-background-link">
 			
 			<div class="block">
-				<div class="columns is-mobile courses">
-					<Course v-for="(g, index) in courses" v-bind:key="index" :g="g" :index="index" :selectedCourse="selectedCourse!=index" />
+				<div class="columns is-mobile gyms">
+					<Gym v-for="(g, index) in gyms" v-bind:key="index" :g="g" :index="index" :selectedGym="selectedGym!=index" />
 				</div>
 			</div>
 
-			<div class="block" v-if="selectedCourse>=0">
+			<div class="block" v-if="selectedGym>=0">
 				
 					<b-field class="column" label="Choose date :">
 						<b-datetimepicker v-model="datetime"
@@ -34,26 +34,26 @@
 					<b-button class="column" type="is-link" @click="buy()">Buy</b-button>
 				<br>
 				<div>
-					You have chosen a course on the street {{courses[selectedCourse].street}} by {{courses[selectedCourse].price}} UAH.
+					You have chosen a gym on the street {{gyms[selectedGym].street}} by {{gyms[selectedGym].price}} UAH.
 				</div>
 			</div>
 	</section>
 </template>
 
 <script>
-	import Course from '~/components/Course'
+	import Gym from '~/components/Gym'
 	import Card from '~/components/Card'
 
 	export default {
-		name: 'Courses',
+		name: 'Gyms',
 			data() {
 				return {
-					courses: [
-						{street: 'English', price: 110, image: ''},
-						{street: 'C++', price: 150, image: ''},
-						{street: 'DevOps', price: 100, image: ''},
+					gyms: [
+						{street: 'Grove -3', price: 110, image: 'https://i.pinimg.com/originals/44/99/95/449995ef1ce37086e6de72835c42efcb.jpg'},
+						{street: 'Slave 69', price: 150, image: 'https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg'},
+						{street: 'Dungeonmaster 47', price: 100, image: 'https://s0.rbk.ru/v6_top_pics/media/img/2/82/755586211300822.png'},
 					],
-					selectedCourse: -1,
+					selectedGym: -1,
 					datetime: new Date(),
 					locale: 'ru-RU'
 				}
@@ -65,14 +65,14 @@
 		methods: {
 			buy(){
 				var info = {
-					'selectedCourse': this.selectedCourse,
+					'selectedGym': this.selectedGym,
 					'date': this.datetime,
 				}
 				this.$cookies.set('info', info, {
 					path: '/',
 					maxAge: 60 * 60 * 24 * 7
 				})
-				this.$router.push('/cabinet/buy-page/paygourse')
+				this.$router.push('/cabinet/buy-page/paygym')
 			}
 		}
 	}
