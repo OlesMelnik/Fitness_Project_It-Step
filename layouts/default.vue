@@ -49,6 +49,11 @@
 					</nuxt-link>
 				</li>
 				<li>
+					<nuxt-link to="/cabinet/mentors" exact-active-class="is-active">
+						<b-icon icon="account" /> Choose a mentor
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/cabinet/calendar" exact-active-class="is-active">
 						<b-icon icon="calendar" /> Calendar
 					</nuxt-link>
