@@ -19,23 +19,13 @@
 								<button class="button is-primary"
 									@click="datetime = new Date()">
 									<b-icon icon="clock"></b-icon>
-									<span>Now</span>
-								</button>
-							</template>
-							<template slot="right">
-								<button class="button is-danger"
-									@click="datetime = null">
-									<b-icon icon="close"></b-icon>
-									<span>Clear</span>
+									<span>Get</span>
 								</button>
 							</template>
 						</b-datetimepicker>
 					</b-field>
-					<b-button class="column" type="is-link" @click="buy()">Buy</b-button>
+					<b-button class="column" type="is-link" @click="buy()">Buy by coin</b-button>
 				<br>
-				<div>
-					You have chosen a course on the street {{courses[selectedCourse].street}} by {{courses[selectedCourse].price}} UAH.
-				</div>
 			</div>
 	</section>
 </template>
@@ -49,9 +39,9 @@
 			data() {
 				return {
 					courses: [
-						{street: 'English', price: 110, image: ''},
-						{street: 'C++', price: 150, image: ''},
-						{street: 'DevOps', price: 100, image: ''},
+						{street: 'English', price: 10, image: 'https://img-c.udemycdn.com/course/240x135/834702_d56e_8.jpg?Expires=1621321692&Signature=VedP2l0Ev-mr1RKhFQ5y-x86R9KQg-emC~bZ21SHPKjGj3gYcLhTgG9U1TgEUZPbPoJK6PdL8eXswfyazze608zW5q2LZeQQgGiB5UOT9nDWfBEU5sM7ILBXlx3foRuWObzRLjAQ7RZiPeXaucEOOU7C2mdvqhpNT1cdo-ayKhueb~Qoyri2c8~otqDP8uHLmj245wFAhVu7lTcLj6L9-zu5JWwzPtZ-udDEt-1CNWZ5vLiRWF8x1UmQF0VS~V6ODbSENjQW2ei-ejpswOQd4H8gyElGA0U7AluvASvLIn1WKojGTSKH2P3tmr9OlkwX-c~MbEU5WcSmFKX8Ac2INg__&Key-Pair-Id=APKAITJV77WS5ZT7262A'},
+						{street: 'C++', price: 50, image: 'https://img-a.udemycdn.com/course/240x135/1576854_9aeb_2.jpg?ygEa7HNGQAXfRvh3f7tJ_SJuBtCOyIYuQ5ONsprvZsN-tfwZu1Mcw9tD7SjKueOaqINyh2-Xz3rvYIy9jmphFYyzBG-AcsBQZ-648PIMNk_NBNl0GCf0szD6Q800eA'},
+						{street: 'DevOps', price: 110, image: 'https://img-b.udemycdn.com/course/240x135/977360_8585_4.jpg?secure=HLW0G7i94fVmRpCVJqQx_Q%3D%3D%2C1621321662'},
 					],
 					selectedCourse: -1,
 					datetime: new Date(),
@@ -72,7 +62,7 @@
 					path: '/',
 					maxAge: 60 * 60 * 24 * 7
 				})
-				this.$router.push('/cabinet/buy-page/paygourse')
+				this.$router.push('/cabinet/buy-page/paycourses')
 			}
 		}
 	}
