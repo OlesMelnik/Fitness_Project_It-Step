@@ -60,8 +60,8 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/cabinet/gyms" exact-active-class="is-active">
-						<b-icon icon="clock" /> Choose a gym
+					<nuxt-link to="/cabinet/courses" exact-active-class="is-active">
+						<b-icon icon="clock" /> Choose a course
 					</nuxt-link>
 				</li>
 				<li>
@@ -71,7 +71,7 @@
 				</li>
 				<li>
 					<nuxt-link to="/cabinet/buy-page" exact-active-class="is-active">
-						<b-icon icon="ticket" /> Buy season ticket
+						<b-icon icon="ticket" /> Buy Coin
 					</nuxt-link>
 				</li>
 				<li>

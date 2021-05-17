@@ -1,8 +1,5 @@
 <template>
 	<section class="section">
-			<!-- <card title="Free" icon="github" >
-				Open source on <a href="https://github.com/buefy/buefy">GitHub</a>
-			</card> -->
 			<h1 class="title">News</h1>
             <hr class="has-background-link">
 			
