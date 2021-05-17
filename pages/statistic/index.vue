@@ -6,10 +6,6 @@
       Your attendance: <strong>{{ attendance }}%</strong>
     </h2>
     <h2>
-      The average number of calories burned per workout:
-      <strong>{{ cal }}</strong>
-    </h2>
-    <h2>
       Your level: <strong>{{ level }}</strong>
     </h2>
     <h2>
@@ -93,7 +89,7 @@ export default {
       labels: data.calories,
       datasets: [
         {
-          label: "calories burned per workout",
+          label: "hours spent per week",
           data: data.calories,
           backgroundColor: "#ff4d4d",
           borderColor: "#ff4d4d",
@@ -135,7 +131,7 @@ export default {
           hoverBackgroundColor: "#4dff4d",
         },
       ],
-      labels: ["biceps", "triceps", "back", "legs"],
+      labels: ["English", "C++", "DevOps", "Cooking"],
     };
 
     this.progressData = {
@@ -157,37 +153,10 @@ export default {
 
 
   },
-  // this.renderChart(
-  //   {
-  //     labels: data.heartBit,
-  //     datasets: [
-  //       {
-  //         label: "Mean Pulse",
-  //         data: data.heartBit,
-  //         backgroundColor: "rgba(54, 162, 235, 0.2)",
-  //         borderColor: "rgba(54, 162, 235, 1)",
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     scales: {
-  //       yAxes: [
-  //         {
-  //           display: true,
-  //           ticks: {
-  //             suggestedMin: 50, // minimum will be 0, unless there is a lower value.
-  //           },
-  //         },
-  //       ],
-  //     },
-  //   }
-  // );
   name: "Stat",
   data() {
     return {
       attendance: 0,
-      cal: 0,
       level: "",
       progress: "",
       chartData: null,
