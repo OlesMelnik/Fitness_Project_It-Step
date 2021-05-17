@@ -65,6 +65,11 @@
 					</nuxt-link>
 				</li>
 				<li>
+					<nuxt-link to="/cabinet/lesson" exact-active-class="is-active">
+						<b-icon icon="clock" /> Choose a curse
+					</nuxt-link>
+				</li>
+				<li>
 					<nuxt-link to="/cabinet/calendar" exact-active-class="is-active">
 						<b-icon icon="calendar" /> Calendar
 					</nuxt-link>
