@@ -64,7 +64,6 @@ export default {
         let appData = dosa.data();
         let nice = [];
         appData.id = dosa.id;
-        console.log('test', temp2)
         nice.push(appData.season_ticket);
         nice.forEach(element => {
           for (let index = 0; index < element.length; index++) {
@@ -74,7 +73,6 @@ export default {
         });
       });
       console.log(events);
-      console.log("Nice");
       this.calendarOptions.events = events;
       console.log(this.calendarOptions.events); }, 700);
   }
