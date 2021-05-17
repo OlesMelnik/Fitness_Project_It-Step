@@ -4,9 +4,9 @@
 		Course #{{index+1}}<br>
 		Street: {{g.street}}<br>
 		Price: {{g.price}}/3Hour<br>
-		<b-button v-bind:type="{'is-link':true, 'is-light':selectedCourse}" @click="selectCourse(index)">
-			{{selectedCourse?'Choose':'Course selected'}}
-		</b-button>
+		<nuxt-link to="/cabinet/lesson" exact-active-class="is-active">
+				Choose
+		</nuxt-link>
 	</div>
 </template>
 
